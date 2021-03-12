@@ -151,14 +151,12 @@ public abstract class Tuple implements Serializable, Comparable<Tuple>, Iterable
     @SuppressWarnings({"rawtypes", "unchecked"})
     public int compareTo(final Tuple rhs) {
         final int length = this.values.length;
-        final Object[] oValues = rhs.values;
-        final int len = oValues.length;
+        final Object[] vals = rhs.values;
+        final int len = vals.length;
 
         for (int i = 0; i < length && i < len; i++) {
-
             final var elem = (Comparable) this.values[i];
-            final var oElement = (Comparable) oValues[i];
-
+            final var oElement = (Comparable) vals[i];
             final int comparison = elem.compareTo(oElement);
             if (comparison != 0) {
                 return comparison;
